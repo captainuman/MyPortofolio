@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-void text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-ink;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-void;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-surface2;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/50;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent2 px-6 py-3 font-mono text-sm font-medium text-void shadow-glow transition-transform duration-300 hover:scale-105 hover:shadow-glow-violet;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-lg border border-white/15 px-6 py-3 font-mono text-sm font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent;
+  }
+  .btn-icon {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-ink transition-colors duration-300 hover:border-accent hover:text-accent;
+  }
+  .section-eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent;
+  }
+  .section-title {
+    @apply font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* body {
+    cursor: none;
+  } */
+
+  a,
+  button,
+  input,
+  textarea {
+    cursor: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}
